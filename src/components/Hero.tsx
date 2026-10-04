@@ -52,10 +52,10 @@ export const Hero: React.FC = () => {
             muted
             playsInline
             poster={HERO_POSTER_URL}
-            preload="auto"
+            preload="metadata"
             className="w-full h-full object-cover object-[70%_center]"
           >
-            <source src={LOCAL_HERO_VIDEO} type="video/webm" />
+            <source src={LOCAL_HERO_VIDEO} type="video/webm" media="(max-width: 1023px)" />
           </video>
 
           {/* Smooth contrast gradient overlay for mobile video readability */}
@@ -110,10 +110,10 @@ export const Hero: React.FC = () => {
           muted
           playsInline
           poster={HERO_POSTER_URL}
-          preload="auto"
+          preload="metadata"
           className="w-full h-full object-cover object-[75%_center] xl:object-[78%_center]"
         >
-          <source src={LOCAL_HERO_VIDEO} type="video/webm" />
+          <source src={LOCAL_HERO_VIDEO} type="video/webm" media="(min-width: 1024px)" />
         </video>
         {/* Controlled Gradient Overlays for desktop that blend seamlessly into #072B30 */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#072B30] via-[#072B30]/85 via-42% to-transparent pointer-events-none" />
