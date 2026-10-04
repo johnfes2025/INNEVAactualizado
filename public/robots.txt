@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://innevasoluciones.online/sitemap.xml

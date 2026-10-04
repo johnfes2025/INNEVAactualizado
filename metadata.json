@@ -1,0 +1,6 @@
+{
+  "name": "INNEVA SOLUCIONES",
+  "description": "Lavado de muebles, colchones y alfombras a domicilio en Armenia, Quindío. Limpieza profesional con tecnología especializada y productos ecoamigables. Cotiza por WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
