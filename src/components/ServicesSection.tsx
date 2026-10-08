@@ -186,7 +186,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     {service.id === 'muebles' && (
                       <div className="mb-3">
                         <Link
-                          href="/lavado-muebles-armenia"
+                          href="/lavado-muebles-armenia/"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#72D6C8] hover:text-white transition-colors"
                         >
                           <span>Ver servicio de lavado de muebles en Armenia</span>
@@ -197,7 +197,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     {service.id === 'colchones' && (
                       <div className="mb-3">
                         <Link
-                          href="/lavado-colchones-armenia"
+                          href="/lavado-colchones-armenia/"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#72D6C8] hover:text-white transition-colors"
                         >
                           <span>Ver servicio de lavado de colchones en Armenia</span>
@@ -208,7 +208,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     {service.id === 'alfombras' && (
                       <div className="mb-3">
                         <Link
-                          href="/lavado-alfombras-armenia"
+                          href="/lavado-alfombras-armenia/"
                           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#72D6C8] hover:text-white transition-colors"
                         >
                           <span>Ver servicio de lavado de alfombras en Armenia</span>

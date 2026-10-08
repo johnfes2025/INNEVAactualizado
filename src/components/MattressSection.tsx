@@ -92,7 +92,7 @@ export const MattressSection: React.FC = () => {
             {/* Natural Internal Link to Service Page */}
             <div className="mt-4">
               <Link
-                href="/lavado-colchones-armenia"
+                href="/lavado-colchones-armenia/"
                 className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#72D6C8] hover:text-white transition-colors"
               >
                 <span>Ver detalles del servicio de lavado de colchones en Armenia</span>

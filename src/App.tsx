@@ -32,7 +32,7 @@ const LavadoAlfombrasArmeniaPage = React.lazy(() =>
 export default function App() {
   const [currentPath] = usePath();
 
-  if (currentPath === '/lavado-muebles-armenia') {
+  if (currentPath === '/lavado-muebles-armenia/' || currentPath === '/lavado-muebles-armenia') {
     return (
       <React.Suspense fallback={<div className="min-h-screen bg-[#082B30]" />}>
         <LavadoMueblesArmeniaPage />
@@ -40,7 +40,7 @@ export default function App() {
     );
   }
 
-  if (currentPath === '/lavado-colchones-armenia') {
+  if (currentPath === '/lavado-colchones-armenia/' || currentPath === '/lavado-colchones-armenia') {
     return (
       <React.Suspense fallback={<div className="min-h-screen bg-[#082B30]" />}>
         <LavadoColchonesArmeniaPage />
@@ -48,7 +48,7 @@ export default function App() {
     );
   }
 
-  if (currentPath === '/lavado-alfombras-armenia') {
+  if (currentPath === '/lavado-alfombras-armenia/' || currentPath === '/lavado-alfombras-armenia') {
     return (
       <React.Suspense fallback={<div className="min-h-screen bg-[#082B30]" />}>
         <LavadoAlfombrasArmeniaPage />

@@ -30,17 +30,17 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-[#EEF4F3]/80">
               <li>
-                <Link href="/lavado-muebles-armenia" className="hover:text-white transition-colors">
+                <Link href="/lavado-muebles-armenia/" className="hover:text-white transition-colors">
                   Lavado de muebles
                 </Link>
               </li>
               <li>
-                <Link href="/lavado-colchones-armenia" className="hover:text-white transition-colors">
+                <Link href="/lavado-colchones-armenia/" className="hover:text-white transition-colors">
                   Lavado de colchones
                 </Link>
               </li>
               <li>
-                <Link href="/lavado-alfombras-armenia" className="hover:text-white transition-colors">
+                <Link href="/lavado-alfombras-armenia/" className="hover:text-white transition-colors">
                   Lavado de alfombras y tapetes
                 </Link>
               </li>

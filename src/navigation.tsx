@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-// Normalizes path by removing trailing slash (except for root '/')
+// Normalizes path ensuring trailing slash (e.g. '/lavado-muebles-armenia/' and '/')
 export function normalizePath(path: string): string {
   if (!path || path === '/') return '/';
   const clean = path.split('?')[0].split('#')[0].replace(/\/+$/, '');
-  return clean || '/';
+  return clean ? `${clean}/` : '/';
 }
 
 export function usePath(): [string, (to: string) => void] {
@@ -54,7 +54,8 @@ export function usePath(): [string, (to: string) => void] {
     }
 
     if (normalizePath(window.location.pathname) !== normalizePath(to)) {
-      window.history.pushState({}, '', to);
+      const targetUrl = to.startsWith('/') && !to.includes('#') && !to.includes('?') && !to.endsWith('/') ? `${to}/` : to;
+      window.history.pushState({}, '', targetUrl);
       window.dispatchEvent(new Event('app-navigation'));
       window.scrollTo({ top: 0, behavior: 'instant' });
     } else {

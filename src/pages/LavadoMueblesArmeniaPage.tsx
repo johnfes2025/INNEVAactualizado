@@ -114,7 +114,7 @@ export const LavadoMueblesArmeniaPage: React.FC = () => {
     '@graph': [
       {
         '@type': 'Service',
-        '@id': 'https://innevasoluciones.online/lavado-muebles-armenia#service',
+        '@id': 'https://innevasoluciones.online/lavado-muebles-armenia/#service',
         name: 'Lavado de muebles a domicilio en Armenia',
         description:
           'Servicio profesional de lavado y limpieza de muebles, sofás, salas, sillas y poltronas a domicilio en Armenia, Quindío para retirar suciedad, manchas y malos olores.',
@@ -131,11 +131,11 @@ export const LavadoMueblesArmeniaPage: React.FC = () => {
             name: 'Quindío',
           },
         ],
-        url: 'https://innevasoluciones.online/lavado-muebles-armenia',
+        url: 'https://innevasoluciones.online/lavado-muebles-armenia/',
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://innevasoluciones.online/lavado-muebles-armenia#faq',
+        '@id': 'https://innevasoluciones.online/lavado-muebles-armenia/#faq',
         mainEntity: faqs.map((faq) => ({
           '@type': 'Question',
           name: faq.q,
@@ -153,7 +153,7 @@ export const LavadoMueblesArmeniaPage: React.FC = () => {
       <PageSEO
         title="Lavado de Muebles a Domicilio en Armenia | INNEVA"
         description="Lavado de muebles, sofás y tapicería a domicilio en Armenia, Quindío. Limpieza profesional para retirar suciedad, manchas y malos olores. Cotiza por WhatsApp."
-        canonicalUrl="https://innevasoluciones.online/lavado-muebles-armenia"
+        canonicalUrl="https://innevasoluciones.online/lavado-muebles-armenia/"
         schema={schemaData}
       />
 
@@ -411,7 +411,7 @@ export const LavadoMueblesArmeniaPage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-3xl mx-auto">
               <Link
-                href="/lavado-colchones-armenia"
+                href="/lavado-colchones-armenia/"
                 className="p-5 rounded-2xl bg-[#073F46]/50 hover:bg-[#073F46] border border-[#0B6E75]/40 hover:border-[#72D6C8] transition-all flex items-center justify-between group"
               >
                 <div>
@@ -426,7 +426,7 @@ export const LavadoMueblesArmeniaPage: React.FC = () => {
               </Link>
 
               <Link
-                href="/lavado-alfombras-armenia"
+                href="/lavado-alfombras-armenia/"
                 className="p-5 rounded-2xl bg-[#073F46]/50 hover:bg-[#073F46] border border-[#0B6E75]/40 hover:border-[#72D6C8] transition-all flex items-center justify-between group"
               >
                 <div>
