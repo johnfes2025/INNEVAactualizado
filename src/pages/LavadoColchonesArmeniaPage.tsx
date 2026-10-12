@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { FloatingWhatsApp } from '../components/FloatingWhatsApp';
@@ -20,6 +20,10 @@ import {
 
 export const LavadoColchonesArmeniaPage: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -172,7 +176,7 @@ export const LavadoColchonesArmeniaPage: React.FC = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
+        <section id="hero" className="relative py-8 sm:py-12 lg:py-16 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               
@@ -359,7 +363,7 @@ export const LavadoColchonesArmeniaPage: React.FC = () => {
         </section>
 
         {/* FAQs */}
-        <section className="py-16 sm:py-20 bg-[#082B30]">
+        <section id="faq" className="py-16 sm:py-20 bg-[#082B30]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-[#72D6C8] block mb-2">

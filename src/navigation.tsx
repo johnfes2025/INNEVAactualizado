@@ -39,15 +39,30 @@ export function usePath(): [string, (to: string) => void] {
       if (normalizePath(window.location.pathname) !== '/') {
         window.history.pushState({}, '', '/' + hash);
         window.dispatchEvent(new Event('app-navigation'));
-        setTimeout(() => {
+        
+        const tryScroll = (attempts = 0) => {
+          if (targetId === 'hero') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+          }
           const el = document.getElementById(targetId);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          } else if (attempts < 15) {
+            setTimeout(() => tryScroll(attempts + 1), 60);
+          }
+        };
+        setTimeout(() => tryScroll(0), 50);
       } else {
-        const el = document.getElementById(targetId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+        if (targetId === 'hero') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
           window.history.pushState({}, '', hash);
+        } else {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            window.history.pushState({}, '', hash);
+          }
         }
       }
       return;
@@ -57,7 +72,7 @@ export function usePath(): [string, (to: string) => void] {
       const targetUrl = to.startsWith('/') && !to.includes('#') && !to.includes('?') && !to.endsWith('/') ? `${to}/` : to;
       window.history.pushState({}, '', targetUrl);
       window.dispatchEvent(new Event('app-navigation'));
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

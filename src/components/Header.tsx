@@ -3,6 +3,7 @@ import { InnevaLogo } from './InnevaLogo';
 import { WHATSAPP_LINK } from '../data/content';
 import { Menu, X, ArrowRight, Phone } from 'lucide-react';
 import { StarButton } from './StarButton';
+import { usePath } from '../navigation';
 
 interface HeaderProps {
   onOpenQuoteModal?: () => void;
@@ -11,6 +12,9 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentPath, navigate] = usePath();
+
+  const isHomePage = currentPath === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,13 +25,60 @@ export const Header: React.FC<HeaderProps> = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Inicio', href: '#hero', active: true },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Resultados', href: '#resultados' },
-    { name: 'Preguntas frecuentes', href: '#faq' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Inicio', targetId: 'hero', href: isHomePage ? '#hero' : '/#hero', active: isHomePage && !scrolled },
+    { name: 'Servicios', targetId: 'servicios', href: isHomePage ? '#servicios' : '/#servicios', active: false },
+    { name: 'Nosotros', targetId: 'nosotros', href: isHomePage ? '#nosotros' : '/#nosotros', active: false },
+    { name: 'Resultados', targetId: 'resultados', href: isHomePage ? '#resultados' : '/#resultados', active: false },
+    { name: 'Preguntas frecuentes', targetId: 'faq', href: '#faq', active: false },
+    { name: 'Contacto', targetId: 'contacto', href: isHomePage ? '#contacto' : '/#contacto', active: false },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, _href: string, targetId: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (isHomePage) {
+      if (targetId === 'hero') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.history.pushState({}, '', '#hero');
+      } else {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState({}, '', `#${targetId}`);
+        }
+      }
+      return;
+    }
+
+    // On service pages:
+    if (targetId === 'hero') {
+      navigate('/#hero');
+      return;
+    }
+
+    if (targetId === 'faq') {
+      const localFaq = document.getElementById('faq');
+      if (localFaq) {
+        localFaq.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState({}, '', '#faq');
+        return;
+      }
+    }
+
+    navigate(`/#${targetId}`);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState({}, '', '#hero');
+    } else {
+      navigate('/#hero');
+    }
+  };
 
   return (
     <header
@@ -40,7 +91,11 @@ export const Header: React.FC<HeaderProps> = () => {
     >
       <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center group transition-transform duration-200 hover:scale-[1.02]">
+        <a
+          href={isHomePage ? '#hero' : '/#hero'}
+          onClick={handleLogoClick}
+          className="flex items-center group transition-transform duration-200 hover:scale-[1.02]"
+        >
           <InnevaLogo size="sm" />
         </a>
 
@@ -50,7 +105,8 @@ export const Header: React.FC<HeaderProps> = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-[13px] lg:text-[15px] tracking-wide transition-colors duration-200 ${
+              onClick={(e) => handleNavClick(e, link.href, link.targetId)}
+              className={`text-[13px] lg:text-[15px] tracking-wide transition-colors duration-200 cursor-pointer ${
                 link.active
                   ? 'text-white font-semibold relative pb-1 after:content-[""] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#168B99] after:rounded-full'
                   : 'text-[#E2E8F0]/90 hover:text-white font-medium'
@@ -109,8 +165,8 @@ export const Header: React.FC<HeaderProps> = () => {
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-lg text-base font-medium ${
+              onClick={(e) => handleNavClick(e, link.href, link.targetId)}
+              className={`block px-3 py-2 rounded-lg text-base font-medium cursor-pointer ${
                 link.active ? 'text-[#72D6C8] bg-white/5 font-bold' : 'text-white hover:bg-white/5'
               }`}
             >

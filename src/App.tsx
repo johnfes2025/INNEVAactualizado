@@ -32,6 +32,22 @@ const LavadoAlfombrasArmeniaPage = React.lazy(() =>
 export default function App() {
   const [currentPath] = usePath();
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const targetId = window.location.hash.replace('#', '');
+      if (targetId) {
+        setTimeout(() => {
+          if (targetId === 'hero') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const el = document.getElementById(targetId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 120);
+      }
+    }
+  }, [currentPath]);
+
   if (currentPath === '/lavado-muebles-armenia/' || currentPath === '/lavado-muebles-armenia') {
     return (
       <React.Suspense fallback={<div className="min-h-screen bg-[#082B30]" />}>
