@@ -45,27 +45,32 @@ export const InnevaLogo: React.FC<InnevaLogoProps> = ({
   }
 
   return (
-    <div className={`inline-flex items-center gap-2.5 lg:gap-3 ${className}`}>
+    <div className={`inline-flex items-center gap-2 sm:gap-2.5 lg:gap-3 ${className}`}>
       {Emblem}
-      <div className="flex flex-col leading-none">
-        <div className="flex items-center tracking-[0.14em] text-white text-[20px]">
+      <div className="flex flex-col justify-center leading-none select-none">
+        {/* Línea 1: INNEVA -SOLUCIONES- */}
+        <div className="flex items-baseline gap-1 sm:gap-1.5 whitespace-nowrap">
           <span
-            className="text-left font-bold mt-0 ml-[5px]"
+            className="font-bold text-white text-[16px] xs:text-[18px] sm:text-[20px] tracking-[0.1em] sm:tracking-[0.14em] leading-none"
             style={{ fontFamily: "'Poppins', sans-serif" }}
           >
             INNEVA
           </span>
-        </div>
-        <div className="flex items-center justify-between text-[10px] tracking-[0.22em] text-[#72D6C8] font-semibold mt-0.5 uppercase">
-          <span className="h-[1px] w-2 lg:w-2.5 bg-[#72D6C8]/60 inline-block mr-1"></span>
-          <span className="text-[10px]">SOLUCIONES</span>
-          <span className="h-[1px] w-2 lg:w-2.5 bg-[#72D6C8]/60 inline-block ml-1"></span>
-        </div>
-        {variant === 'full-badge' && (
-          <span className="text-[7px] lg:text-[8px] text-[#A7F3D0] tracking-wide mt-0.5 italic">
-            Bienestar para ti y el planeta
+          <span
+            className="text-[9px] xs:text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.18em] text-[#72D6C8] font-semibold uppercase leading-none"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
+          >
+            -SOLUCIONES-
           </span>
-        )}
+        </div>
+
+        {/* Línea 2: BIENESTAR PARA TI Y EL PLANETA */}
+        <p
+          className="text-[6.5px] xs:text-[7.5px] sm:text-[8.5px] lg:text-[9px] text-[#A7F3D0] tracking-[0.14em] sm:tracking-[0.18em] uppercase font-medium mt-1 leading-none whitespace-nowrap m-0 p-0"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          BIENESTAR PARA TI Y EL PLANETA
+        </p>
       </div>
     </div>
   );

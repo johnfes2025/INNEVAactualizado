@@ -89,7 +89,7 @@ export const Header: React.FC<HeaderProps> = () => {
           : 'bg-[#072B30] lg:bg-transparent py-3.5 sm:py-4 lg:py-6 border-b border-[#0B6E75]/20 lg:border-transparent'
       }`}
     >
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 flex items-center justify-between">
+      <div className="max-w-[1320px] mx-auto px-3.5 sm:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
         {/* Logo */}
         <a
           href={isHomePage ? '#hero' : '/#hero'}

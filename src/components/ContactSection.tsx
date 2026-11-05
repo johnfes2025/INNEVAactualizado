@@ -28,7 +28,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contacto" className="hidden md:block py-20 lg:py-28 bg-[#073F46] text-[#EEF4F3] relative overflow-hidden border-t border-[#0B6E75]/40">
+    <section id="contacto" className="block py-14 sm:py-20 lg:py-28 bg-[#073F46] text-[#EEF4F3] relative overflow-hidden border-t border-[#0B6E75]/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -244,6 +244,45 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Medios de pago y facilidades */}
+        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-[#0B6E75]/40 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center justify-items-center max-w-5xl mx-auto">
+            <div className="w-full flex flex-col items-center justify-center p-1">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-[#72D6C8] mb-3">
+                Financiación
+              </span>
+              <div className="uiverse-rotating-card">
+                <div className="glass"></div>
+                <div className="card-content">
+                  <img
+                    src="/addi-sistecredito-pagos.webp"
+                    alt="Financia con Addi y Sistecrédito - INNEVA"
+                    className="w-full h-auto object-contain select-none block"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col items-center justify-center p-1">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.16em] text-[#72D6C8] mb-3">
+                Métodos de pago
+              </span>
+              <div className="uiverse-rotating-card">
+                <div className="glass"></div>
+                <div className="card-content">
+                  <img
+                    src="/medios-pago-nequi-daviplata-breb.webp"
+                    alt="Medios de pago Nequi, DaviPlata y Bre-B - INNEVA"
+                    className="w-full h-auto object-contain select-none block"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

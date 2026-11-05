@@ -28,6 +28,127 @@
   background: #72D6C8;
 }
 
+/* From Uiverse.io by javierBarroso - Rotating Border Card Effect */
+.uiverse-rotating-card {
+  width: 100%;
+  max-width: 460px;
+  background: #112E2F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 3px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.uiverse-rotating-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.uiverse-rotating-card .card-content {
+  border-radius: 17px;
+  background: #112E2F;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.uiverse-rotating-card .card-content::before {
+  opacity: 0;
+  transition: opacity 300ms;
+  content: " ";
+  display: block;
+  background: #fff5;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.uiverse-rotating-card:hover .card-content::before {
+  opacity: 1;
+}
+
+.uiverse-rotating-card::before {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 250px;
+  height: 600px;
+  transform: rotate(0deg) translateY(50%);
+  background: linear-gradient(90deg, #ff2288, transparent);
+  transition: opacity 300ms;
+  animation: rotation_9018 3000ms infinite linear;
+  animation-play-state: paused;
+}
+
+.uiverse-rotating-card::after {
+  opacity: 1;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 250px;
+  height: 600px;
+  transform: rotate(0deg) translateY(-50%);
+  background: linear-gradient(90deg, transparent, #2268ff);
+  transition: opacity 300ms;
+  animation: rotation_9019 3000ms infinite linear;
+  animation-play-state: paused;
+}
+
+.uiverse-rotating-card:hover::before,
+.uiverse-rotating-card:hover::after {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.uiverse-rotating-card .glass {
+  position: absolute;
+  content: "";
+  display: block;
+  inset: 0;
+  background: rgba(17, 46, 47, 0.2);
+  backdrop-filter: blur(50px);
+  z-index: 3;
+  transition-duration: 0.5s;
+  pointer-events: none;
+}
+
+.uiverse-rotating-card:hover .glass {
+  opacity: 0;
+}
+
+@keyframes rotation_9018 {
+  0% {
+    transform: rotate(0deg) translateY(50%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(50%);
+  }
+}
+
+@keyframes rotation_9019 {
+  0% {
+    transform: rotate(0deg) translateY(-50%);
+  }
+  100% {
+    transform: rotate(360deg) translateY(-50%);
+  }
+}
+
 /* Hero Title Premium Shimmer Reflection */
 @keyframes heroTitleShimmer {
   0% {
