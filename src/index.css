@@ -92,7 +92,7 @@
   background: linear-gradient(90deg, #ff2288, transparent);
   transition: opacity 300ms;
   animation: rotation_9018 3000ms infinite linear;
-  animation-play-state: paused;
+  animation-play-state: running;
 }
 
 .uiverse-rotating-card::after {
@@ -106,29 +106,11 @@
   background: linear-gradient(90deg, transparent, #2268ff);
   transition: opacity 300ms;
   animation: rotation_9019 3000ms infinite linear;
-  animation-play-state: paused;
-}
-
-.uiverse-rotating-card:hover::before,
-.uiverse-rotating-card:hover::after {
-  opacity: 1;
   animation-play-state: running;
 }
 
 .uiverse-rotating-card .glass {
-  position: absolute;
-  content: "";
-  display: block;
-  inset: 0;
-  background: rgba(17, 46, 47, 0.2);
-  backdrop-filter: blur(50px);
-  z-index: 3;
-  transition-duration: 0.5s;
-  pointer-events: none;
-}
-
-.uiverse-rotating-card:hover .glass {
-  opacity: 0;
+  display: none;
 }
 
 @keyframes rotation_9018 {
